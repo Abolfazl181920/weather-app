@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Routes } from './components/Routes';
@@ -15,6 +14,7 @@ const App = () => {
         <Routes />
         <Footer />
       </div>
+      <p>lorem</p>
     </div>
   );
 }
