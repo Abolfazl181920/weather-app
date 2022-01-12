@@ -1,21 +1,15 @@
 import React from 'react';
 
-import moment from 'moment';
+import Header from './Header';
+import Date from './Date';
+import Temp from './Temp';
 
-const CardExampleCard = ({ weatherData }) => (
+const Weather = ({ weatherData }) => (
     <div>
-        <p> {weatherData.name} </p>
-        
-        <div>
-            <p>Day: {moment().format('dddd')} </p>
-            <p> {moment().format('LL')} </p>
-        </div>
-
-        <div>
-            <p>Temprature: {weatherData.main.temp} &deg;C </p>
-            <p>Humidity: {weatherData.main.humidity} % </p>
-        </div>
+        <Header name={weatherData.name} />
+        <Date />
+        <Temp temp={weatherData.main.temp} humidity={weatherData.main.humidity} />
     </div>
 )
 
-export default CardExampleCard;
+export default Weather;
