@@ -21,6 +21,10 @@ const App = () => {
 
     }, [ lat, long ]);
 
+    const preventForm = (event) => {
+        event.preventDefault();
+    }
+
     return(
         <div className="App">
             {
@@ -30,6 +34,12 @@ const App = () => {
                     <></>
                 )
             }
+
+            <form onSubmit={preventForm}>
+                <input type="text" placeholder="search" />
+                <button>Search</button>
+            </form>
+            
         </div>
     );
 }
