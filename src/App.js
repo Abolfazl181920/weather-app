@@ -9,14 +9,24 @@ const App = () => {
     const [ data, setData ] = useState([]);
 
     useEffect(() => {
-        const fetchData = async () => {
-            await fetch(`${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
-            .then(res => res.json())
-            .then(result => {
-                setData(result);
-            });
-        }
-        fetchData();
+        const data = new Promise((resolve, reject) => {
+            const fetchData = async () => {
+                fetch(`${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
+                .then(res => res.json())
+                .then(result => {
+                    resolve();
+                    setData(result);
+                });
+            }
+            fetchData();
+        });
+        
+        data
+        .then(() => {
+            console.log('This fetching was Successfull!');
+        }, () => {
+            console.log('This fetching was Failed!');
+        });
 
     }, [ lat, long ]);
 
