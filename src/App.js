@@ -20,14 +20,14 @@ const App = () => {
             }
             fetchData();
         });
-        
-        data
-        .then(() => {
-            console.log('This fetching was Successfull!');
-        }, () => {
-            console.log('This fetching was Failed!');
-        });
 
+        data
+            .then(() => {
+                console.log('Successfull');
+            }, () => {
+                console.log('Fail');
+            });
+            
     }, [ lat, long ]);
 
     return(
@@ -41,10 +41,9 @@ const App = () => {
             }
 
             <form>
-                <input onChange={(event) => setLat(event.target.value)} type="text" placeholder="latitude ..." />
-                <input onChange={(event) => setLong(event.target.value)} type="text" placeholder="longtitude ..." />
+                <input onChange={(event) => setLat(event.target.value)} type="text" placeholder="lat ..." />
+                <input onChange={(event) => setLong(event.target.value)} type="text" placeholder="long ..." />
             </form>
-
         </div>
     );
 }
