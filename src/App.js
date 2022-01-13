@@ -14,16 +14,11 @@ const App = () => {
             .then(res => res.json())
             .then(result => {
                 setData(result);
-                console.log(result);
             });
         }
         fetchData();
 
     }, [ lat, long ]);
-
-    const preventForm = (event) => {
-        event.preventDefault();
-    }
 
     return(
         <div className="App">
@@ -35,11 +30,11 @@ const App = () => {
                 )
             }
 
-            <form onSubmit={preventForm}>
-                <input type="text" placeholder="search" />
-                <button>Search</button>
+            <form>
+                <input onChange={(event) => setLat(event.target.value)} type="text" placeholder="latitude ..." />
+                <input onChange={(event) => setLong(event.target.value)} type="text" placeholder="longtitude ..." />
             </form>
-            
+
         </div>
     );
 }
